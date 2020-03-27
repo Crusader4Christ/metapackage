@@ -1,0 +1,34 @@
+{
+  "name": "meta-lambda",
+  "version": "1.0.0",
+  "description": "all lambdas from git in one package",
+  "main": "index.js",
+  "scripts": {
+    "build": "node $NODE_DEBUG_OPTION build.js && tsc",
+    "modclean": "modclean -r -n default:* -I *.ts",
+    "publish": " npm run modclean && npm prune --production",
+    "test": "mocha $NODE_DEBUG_OPTION ./test/dist/**/*test.js --recursive --exit"
+  },
+  "dependencies": {
+    "conform5-lambda-integrations-check-hierarchy": "git+ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/conform5-lambda-integrations-check-hierarchy#feature/webpack",
+    "conform5-lambda-integrations-cordis": "git+ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/conform5-lambda-integrations-cordis#dev",
+    "conform5-lambda-integrations-covance": "git+ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/conform5-lambda-integrations-covance#dev",
+    "conform5-lambda-integrations-ehr-iq": "git+ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/conform5-lambda-integrations-ehr-iq#dev"
+  },
+  "devDependencies": {
+    "@conform/cx-changelog": "1.0.0",
+    "@types/chai": "4.2.7",
+    "@types/mocha": "5.2.7",
+    "@types/sinon": "7.5.1",
+    "chai": "4.2.0",
+    "del": "^5.1.0",
+    "global-npm": "^0.4.1",
+    "js-yaml": "^3.13.1",
+    "mocha": "6.1.4",
+    "modclean": "^3.0.0-beta.1",
+    "node-dependency-injection": "2.4.0",
+    "npm-path": "^2.0.4",
+    "sinon": "7.2.4",
+    "typescript": "3.6.5"
+  }
+}
